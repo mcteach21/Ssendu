@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Ssendu</string>
+    <string name="search_text">Chercher</string>
+    <string name="search_text_short">Traduire</string>
+    <string name="noitem_title">Aucun résultat trouvé!</string>
+
+    <string-array name="options">
+        <item>Français => Kabyle</item>
+        <item>Kabyle => Français</item>
+    </string-array>
+
+    <string name="title_activity_translate">Ssendu!</string>
+    <string name="tab_text_1">Traduire</string>
+    <string name="tab_text_2">Exemples</string>
+    <string name="tab_text_3">Alphabet</string>
+    <string name="btn_start_text">Kcem!</string>
+    <string name="question_txt" translatable="false">\?</string>
+    <string name="hint_search_txt">search..</string>
+
+</resources>

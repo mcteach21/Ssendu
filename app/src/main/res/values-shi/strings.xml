@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="tab_text_1" translatable="false">ssuɣl</string>
+    <string name="tab_text_2">amdya</string>
+    <string name="tab_text_3">tifinaɣ</string>
+
+    <string name="btn_start_text">kcem!</string>
+
+    <string name="search_text" >Affed</string>
+    <string name="search_text_short">ssuɣl</string>
+    <string name="noitem_title">Ur\'dufiɣ</string>
+    <string name="title_activity_translate">Ssendu!</string>
+    <string name="app_name">Ssendu</string>
+</resources>
