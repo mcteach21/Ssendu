@@ -133,6 +133,8 @@ class TranslateFragment : Fragment() {
         if(id>0)
             url = API_BASE_URL + "kab/fr/"
 
+        Log.i(TAG, "startSearch: url $url$search")
+
         RetrieveSiteData().execute(url + search)
 
         go?.isEnabled = false
@@ -298,13 +300,18 @@ class TranslateFragment : Fragment() {
     }
     inner class RetrieveSiteData() : AsyncTask<String?, Void?, ResultInfo>() {
         override fun doInBackground(vararg urls: String?): ResultInfo {
+            Log.i(TAG, "doInBackground..")
 
             var result = ResultInfo()
+
             for (url in urls) {
                 try {
+                    Log.i(TAG, "doInBackground..url=$url")
 
                     val doc: Document = Jsoup.connect(url).get()
-                    val translatedWords: Elements = doc.select(".ng-star-inserted h4")
+                    //Log.i(TAG, "doInBackground..doc=$doc")
+
+                    val translatedWords: Elements = doc.select(".translation span") //.ng-star-inserted h4
 
                     for (headline in translatedWords) {
                         var word : String? = format(headline.text())
@@ -312,14 +319,17 @@ class TranslateFragment : Fragment() {
                             result.words.add(word)
                     }
 
-                    val translatedExamples: Elements = doc.select(".translate-entry-translation-example-text")
+
+                    val translatedExamples: Elements = doc.select(".tmem__item div")//".translate-entry-translation-example-text")
                     for (headline in translatedExamples) {
                         var example : String? = headline.text()
                         if (!result.examples.contains(example))
                             result.examples.add(example)
                     }
+
+                    Log.i(TAG, "doInBackground..finished")
                 }catch (e: Exception){
-                    Log.i("tests", "No Result! $e")
+                    Log.i(TAG, "No Result! $e")
                 }
 
             }
@@ -327,6 +337,7 @@ class TranslateFragment : Fragment() {
         }
 
         override fun onPostExecute(result: ResultInfo) {
+            Log.i(TAG, "onPostExecute..result=$result")
             searchFinihed(result)
         }
     }
